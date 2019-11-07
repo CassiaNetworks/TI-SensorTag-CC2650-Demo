@@ -23,3 +23,38 @@ input:-webkit-autofill {
 　 color: rgb(0, 0, 0);
   -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
 }
+
+.fixed-col {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.fixed-col2 {
+  -ms-flex: 0 0 300px;
+  flex: 0 0 300px;
+}
+
+/* This hides .fixed-col items if the window size is a certain width. */
+/*@media (max-width: 500px) {
+  .fixed-col {
+    display: none; 
+  } 
+}*/
+
+.flt-left {
+  float: left;
+}
+
+.clr-div {
+  clear: both;
+}
+
+.pad-top-bottom {
+  padding-top: 15px;
+  padding-bottom: 15px
+}
+
+.pad-moretop-bottom {
+  padding-top: 30px;
+  padding-bottom: 15px
+}

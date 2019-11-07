@@ -46,7 +46,7 @@
       </div>
 
       <div class="row" id="local-crl">
-        <div class="col-md-12 form-inline">
+        <div class="col-md-12 form-inline pad-top-bottom">
           <div class="form-group">
             <label for="ap-ip">Router IP:</label>
             <input type="text" class="txt form-control" id="ap-ip" placeholder="192.168.199.100">
@@ -54,9 +54,8 @@
         </div>
       </div> 
 
-      <div class="row" style="margin-top: 8px">
-
-        <div class="col-md-3 form-inline">
+      <div class="row">
+        <div class="col-md-3 form-inline fixed-col2 pad-top-bottom">
           <label for="local-control">Control:</label>
           <select id="local-control" class="form-control">
             <option value="local">Local Connection</option>
@@ -64,7 +63,7 @@
           </select>
         </div>
 
-        <div class="col-md-2 form-inline" >
+        <div class="col-md-3 form-inline pad-top-bottom" >
           <label for="lang">Language:</label>
           <select id="lang" class="form-control">
             <option value="cn">中文</option>
@@ -72,27 +71,29 @@
           </select>
         </div>
 
-        <div class="col-md-1">
+        <div class="col-md-1 pad-top-bottom">
           <button type="button" class="i18n conbtn btn btn-success" i18n='connect'>Connect</button>
         </div>
 
-        <div class="col-md-1">
-          <button type="button" class="i18n disconbtn btn btn-danger" i18n="disconnectAll">DisonnectALL</button>
+        <div class="col-md-2 pad-top-bottom flt-left">
+          <button type="button" class="i18n disconbtn btn btn-danger flt-left" i18n="disconnectAll">Disonnect ALL</button>
         </div>
-
-        <div class="col-md-3" style="padding-top: 10px">
-          <div class="form-group" style="float: right;">
-            <label class="i18n" i18n="SamplingFrequency">采集频率</label><label id="refTime" style="margin-right: 12px">(1s)</label>
-            0.5s
-            <input type="range"  id="ref" value="100" max="255" min="50" step="1" style="display: inline-block;width: 100px;vertical-align: middle;">
-            2.55s
+        
+        <div class="col-md-3 pad-top-bottom">
+          <div class="form-group">
+            <label class="i18n clr-div flt-left" i18n="SamplingFrequency">采集频率</label><label class="flt-left" id="refTime" style="margin-right: 12px">(1s):</label>
+            <div class="clr-div flt-left">
+              0.5s
+              <input type="range"  id="ref" value="100" max="255" min="50" step="1" style="display: inline-block;width: 100px;vertical-align: middle;">
+              2.55s
+            </div>
           </div>
         </div>
 
       </div>
 
-      <div class="row" style="margin-top: 8px">
-        <div class="col-md-2">
+      <div class="row pad-moretop-bottom">
+        <div class="col-md-12">
           <label id="_work18n" class="i18n" i18n="_work18n"></label>
           <b id="_work">0</b>
         </div>  
