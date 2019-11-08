@@ -233,7 +233,7 @@ $(document).ready(function() {
     if (isWork || (Date.now() - lastWork) < 2000) return;
     lastWork = Date.now();
     isWork = true;
-    console.log('正在连接', mac);
+    //console.log('正在连接', mac);
     api.conn({
       node: mac,
       type: device.real[mac].type,
@@ -704,9 +704,9 @@ $(document).ready(function() {
     let chartHtmlStr = function() {
       return `<div class="chart" data-mac='${mac}'>
             <div class="content-header">
-                <h4 style="display: inline-block; margin-left: 70px;">Device #${n}</h4>
+                <span class="in-line-block bold-text device-font">Device #${n}</span>
                 <span class="name"></span>
-                <b style="display: inline-block; margin-left: 70px";>MAC：` + mac + `</b>
+                <span class="in-line-block-margin-padding bold-text">MAC：` + mac + `</span>
                 <span class="hidden">状态:</span>
                 <span class="status hidden">在线</span>
             </div>

@@ -15,7 +15,7 @@ var lang = {
     'SamplingFrequency': 'Sampling Frequency',
     'RefreshRate': 'Refresh Rate',
     'connect': 'Connect',
-    'disconnectAll': 'DisconnectAll',
+    'disconnectAll': 'Disconnect All',
     'receivepacket': 'Receive packet',
     'Accelerometer': 'Accelerometer',
     'Gyroscope': 'Gyroscope',
@@ -29,7 +29,7 @@ var lang = {
     '_work18n': 'Total Sensors Connected: '
   },
   cn: {
-    'SamplingFrequency': '采样频率',
+    'SamplingFrequency': '采样频率', // TODO: is it 采集频率 or 采样频率?
     'RefreshRate': '页面刷新频率',
     'connect': '连接',
     'disconnectAll': '断开所有连接',

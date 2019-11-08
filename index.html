@@ -10,121 +10,131 @@
   </head>
 
   <body>
-    <h1 style="padding-left: 10px; margin-top: 10px">TI Sensortag CC2650 Web Demo</h1>
-    <div class="header .container-fluid">
-      
-      <div class="row head" id="remote-crl">
-
-        <div class="col-md-3 form-inline">
-          <div class="form-group">
-            <label for="acaddress">AC Address:</label>
-            <input type="text" class="txt form-control" id="acaddress" placeholder="ac-cn.cassia.pro:8080/api">
-          </div>
-        </div>
-
-        <div class="col-md-3 form-inline">
-          <div class="form-group">
-            <label for="developer">Developer Key:</label>
-            <input type="text" class="txt form-control" id="username" placeholder="tester">
-          </div>
-        </div>
-
-        <div class="col-md-3 form-inline" >
-          <div class="form-group">
-            <label for="password">Developer Secret:</label>
-            <input type="password" class="txt form-control" id="password" placeholder="******">
-          </div>
-        </div>
-
-        <div class="col-md-3 form-inline">
-          <div class="form-group">
-            <label for="apmac">Router MAC:</label>
-            <input type="text" class="txt form-control" id="apmac" placeholder='CC:1B:E0:E0:22:60'>
-          </div>
-        </div>
-
+    <div id="wrapper-div">
+      <div id="title-div">
+        <h1 class="center-title">Cassia Networks BLE Sensor Demo</h1>
+        <h4 class="center-title">using the TI Sensortag CC2650</h4>
       </div>
+      <div id="content-div">
+        <div class="header .container-fluid">
+          
+          <div class="row head" id="remote-crl">
+            <div class="col-md-3 form-inline pad-top-bottom">
+              <div class="form-group">
+                <label for="acaddress">AC Address:</label>
+                <input type="text" class="txt form-control" id="acaddress" placeholder="ac-cn.cassia.pro:8080/api">
+              </div>
+            </div>
 
-      <div class="row" id="local-crl">
-        <div class="col-md-12 form-inline pad-top-bottom">
-          <div class="form-group">
-            <label for="ap-ip">Router IP:</label>
-            <input type="text" class="txt form-control" id="ap-ip" placeholder="192.168.199.100">
+            <div class="col-md-3 form-inline">
+              <div class="form-group">
+                <label for="developer">Developer Key:</label>
+                <input type="text" class="txt form-control" id="username" placeholder="tester">
+              </div>
+            </div>
+
+            <div class="col-md-3 form-inline" >
+              <div class="form-group">
+                <label for="password">Developer Secret:</label>
+                <input type="password" class="txt form-control" id="password" placeholder="******">
+              </div>
+            </div>
+
+            <div class="col-md-3 form-inline">
+              <div class="form-group">
+                <label for="apmac">Router MAC:</label>
+                <input type="text" class="txt form-control" id="apmac" placeholder='CC:1B:E0:E0:22:60'>
+              </div>
+            </div>
           </div>
-        </div>
-      </div> 
 
-      <div class="row">
-        <div class="col-md-3 form-inline fixed-col2 pad-top-bottom">
-          <label for="local-control">Control:</label>
-          <select id="local-control" class="form-control">
-            <option value="local">Local Connection</option>
-            <option value="remote">Remote Connection</option>
-          </select>
+          <div class="row" id="local-crl">
+            <div class="col-md-12 form-inline pad-top-bottom">
+              <div class="form-group">
+                <label for="ap-ip">Router IP:</label>
+                <input type="text" class="txt form-control" id="ap-ip" placeholder="192.168.199.100">
+              </div>
+            </div>
+          </div> 
+
+          <div class="row">
+            <div class="col-md-2 form-inline fixed-col2 pad-top-bottom">
+              <label for="local-control">Control:</label>
+              <select id="local-control" class="form-control">
+                <option value="local">Local Connection</option>
+                <option value="remote">Remote Connection</option>
+              </select>
+            </div>
+
+            <div class="col-md-2 form-inline pad-top-bottom" >
+              <label for="lang">Language:</label>
+              <select id="lang" class="form-control">
+                <option value="en">English</option>
+                <option value="cn">中文</option>
+              </select>
+            </div>
+
+            <div class="col-md-1 pad-top-bottom">
+              <button type="button" class="i18n conbtn btn btn-success" i18n='connect'>Connect</button>
+            </div>
+
+            <div class="col-md-1 pad-top-bottom flt-left">
+              <button type="button" class="i18n disconbtn btn btn-danger flt-left" i18n="disconnectAll">Disonnect All</button>
+            </div>
+            
+            <div class="col-md-3 txt-center">
+              <label id="_work18n" class="i18n" i18n="_work18n"></label>
+              <div id="_work" class="clr-div">0</div>
+            </div>
+
+            <div class="col-md-2 pad-top-bottom">
+              <div class="form-group">
+                <label class="i18n clr-div flt-left" i18n="SamplingFrequency"></label><label class="flt-left" id="refTime" style="margin-right: 12px">(1s):</label>
+                <div class="clr-div flt-left">
+                  0.5s
+                  <input type="range"  id="ref" value="100" max="255" min="50" step="1" style="display: inline-block;width: 100px;vertical-align: middle;">
+                  2.55s
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-1"></div> 
+          </div>
+
+          <!--<div class="row pad-moretop-bottom">
+            <div class="col-md-12">
+              <label id="_work18n" class="i18n" i18n="_work18n"></label>
+              <b id="_work">0</b>
+            </div>  
+          </div>-->
+
         </div>
 
-        <div class="col-md-3 form-inline pad-top-bottom" >
-          <label for="lang">Language:</label>
-          <select id="lang" class="form-control">
-            <option value="cn">中文</option>
-            <option value="en">English</option>
-          </select>
-        </div>
-
-        <div class="col-md-1 pad-top-bottom">
-          <button type="button" class="i18n conbtn btn btn-success" i18n='connect'>Connect</button>
-        </div>
-
-        <div class="col-md-2 pad-top-bottom flt-left">
-          <button type="button" class="i18n disconbtn btn btn-danger flt-left" i18n="disconnectAll">Disonnect ALL</button>
-        </div>
-        
-        <div class="col-md-3 pad-top-bottom">
-          <div class="form-group">
-            <label class="i18n clr-div flt-left" i18n="SamplingFrequency">采集频率</label><label class="flt-left" id="refTime" style="margin-right: 12px">(1s):</label>
-            <div class="clr-div flt-left">
-              0.5s
-              <input type="range"  id="ref" value="100" max="255" min="50" step="1" style="display: inline-block;width: 100px;vertical-align: middle;">
-              2.55s
+        <div class="clearfix"></div> 
+          
+        <div class="content .container-fluid" id="graphic">
+          <div class="chart" data-mac=''>
+            <div class="message">
+              <span class="in-line-block bold-text device-font">Device #1</span>
+              <span class="name"></span>
+              <span class="in-line-block-margin-padding bold-text">MAC：</span>
+              <span class="hidden">状态:</span>
+              <span class="status hidden">在线</span>
+            </div>
+            <div class="row">
+              <div class="col-md-4"><div class="hum pic"></div></div>
+              <div class="col-md-4"><div class="pressure pic"></div></div>
+              <div class="col-md-4"><div class="light pic"></div></div>
+            </div>
+            <div class="row">
+              <div class="col-md-4"> <div class="gyro pic"></div></div>
+              <div class="col-md-4"><div class="acc pic"></div></div>
+              <div class="col-md-4"><div class="magnetic pic"></div></div>
             </div>
           </div>
         </div>
-
-      </div>
-
-      <div class="row pad-moretop-bottom">
-        <div class="col-md-12">
-          <label id="_work18n" class="i18n" i18n="_work18n"></label>
-          <b id="_work">0</b>
-        </div>  
-      </div>
-
-    </div>
-
-    <div class="clearfix"></div> 
-      
-    <div class="content .container-fluid" style="margin: 0 10px;" id="graphic">
-      <div class="chart" data-mac=''>
-        <div class="message">
-          <h4 style="display: inline-block; margin-left: 70px;">Device #1</h4>
-          <span class="name"></span>
-          <b style="display: inline-block; margin-left: 70px";>MAC：</b>
-          <span class="hidden">状态:</span>
-          <span class="status hidden">在线</span>
-        </div>
-        <div class="row">
-          <div class="col-md-4"><div class="hum pic"></div></div>
-          <div class="col-md-4"><div class="pressure pic"></div></div>
-          <div class="col-md-4"><div class="light pic"></div></div>
-        </div>
-        <div class="row">
-          <div class="col-md-4"> <div class="gyro pic"></div></div>
-          <div class="col-md-4"><div class="acc pic"></div></div>
-          <div class="col-md-4"><div class="magnetic pic"></div></div>
-        </div>
       </div>
     </div>
-
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/echarts.js"></script>
