@@ -58,37 +58,42 @@
           </div> 
 
           <div class="row">
-            <div class="col-md-2 form-inline fixed-col2 pad-top-bottom">
-              <label for="local-control">Control:</label>
-              <select id="local-control" class="form-control">
-                <option value="local">Local Connection</option>
-                <option value="remote">Remote Connection</option>
-              </select>
+            <div class="col-md-3 form-inline fixed-col pad-top-bottom">
+              <div class="">
+                <label for="local-control">Control:</label>
+                <select id="local-control" class="form-control">
+                  <option value="local">Local Connection</option>
+                  <option value="remote">Remote Connection</option>
+                </select>
+              </div>
             </div>
 
             <div class="col-md-2 form-inline pad-top-bottom" >
-              <label for="lang">Language:</label>
-              <select id="lang" class="form-control">
-                <option value="en">English</option>
-                <option value="cn">中文</option>
-              </select>
+              <div class="">
+                <label for="lang">Language:</label>
+                <select id="lang" class="form-control">
+                  <option value="en">English</option>
+                  <option value="cn">中文</option>
+                </select>
+              </div>
             </div>
 
-            <div class="col-md-1 pad-top-bottom">
-              <button type="button" class="i18n conbtn btn btn-success" i18n='connect'>Connect</button>
-            </div>
-
-            <div class="col-md-1 pad-top-bottom flt-left">
-              <button type="button" class="i18n disconbtn btn btn-danger flt-left" i18n="disconnectAll">Disonnect All</button>
+            <div class="col-md-3 pad-top-bottom">
+              <div class="btn-group" role="group">
+                <button type="button" class="i18n conbtn btn btn-success" i18n='connect'>Connect</button>
+                <button type="button" class="i18n disconbtn btn btn-danger" i18n="disconnectAll">Disconnect All</button>
+              </div>
             </div>
             
-            <div class="col-md-3 txt-center">
-              <label id="_work18n" class="i18n" i18n="_work18n"></label>
-              <div id="_work" class="clr-div">0</div>
+            <div class="col-md-2 pad-top-bottom pad-left">
+              <div class="">
+                <label id="_work18n" class="i18n" i18n="_work18n"></label>
+                <div id="_work" class="in-line-block">0</div>
+              </div>
             </div>
 
             <div class="col-md-2 pad-top-bottom">
-              <div class="form-group">
+              <div class="form-group min-width-200">
                 <label class="i18n clr-div flt-left" i18n="SamplingFrequency"></label><label class="flt-left" id="refTime" style="margin-right: 12px">(1s):</label>
                 <div class="clr-div flt-left">
                   0.5s
@@ -98,16 +103,8 @@
               </div>
             </div>
 
-            <div class="col-md-1"></div> 
+            <!--<div class="col-md-1 pad-top-bottom"></div>-->
           </div>
-
-          <!--<div class="row pad-moretop-bottom">
-            <div class="col-md-12">
-              <label id="_work18n" class="i18n" i18n="_work18n"></label>
-              <b id="_work">0</b>
-            </div>  
-          </div>-->
-
         </div>
 
         <div class="clearfix"></div> 
