@@ -141,7 +141,7 @@ $(document).ready(function() {
           hub: '',
           success: function(data) {
             if (!data.nodes.forEach) {
-              console.log("There are no devices to disconnect.");
+              console.log("There are no devices to disconnect.s");
               return;
             }
             data.nodes.forEach(item => {
@@ -822,7 +822,8 @@ $(document).ready(function() {
 
   function createChart(n, name, mac) {
     let chartHtmlStr = function() {
-      return `<div class="chart" data-mac='${mac}'>
+      return `<hr class="chart-separator-line">
+            <div class="chart" data-mac='${mac}'>
             <div class="content-header">
                 <span class="in-line-block bold-text device-font">Device #${n}</span>
                 <span class="name"></span>

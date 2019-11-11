@@ -142,3 +142,12 @@ input:-webkit-autofill {
 .btn-group button {
   margin: 0 5px;
 }
+
+.chart {
+  margin-top: 35px;
+  padding-bottom: 30px;
+}
+
+.chart-separator-line {
+  border-top: 1px dashed black;
+}
