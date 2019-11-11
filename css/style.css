@@ -85,14 +85,13 @@ input:-webkit-autofill {
 }
 
 #wrapper-div {
-  padding-top: 5px;
   margin: auto;
   width: 90%;
 }
 
 #title-div {
-  padding-top: 45px;
-  padding-bottom: 15px;
+  padding-top: 55px;
+  padding-bottom: 20px;
 }
 
 .center-title {
