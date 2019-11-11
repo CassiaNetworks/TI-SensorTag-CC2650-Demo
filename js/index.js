@@ -68,6 +68,126 @@ $(document).ready(function() {
     73: ref
   };
 
+  const disconnFunct = function() {
+    let useway = mystorage.get('useway') || 'local';
+    if (useway === 'local') {
+      api
+        .use({
+          server: $("#ap-ip").val(),
+          hub: '',
+          local: true
+        })
+        .devices({
+          server: $("#ap-ip").val(),
+          hub: '',
+          success: function(data) {
+            if (!data.nodes.forEach) {
+              location.reload();
+              return;
+            }
+            data.nodes.forEach(item => {
+              api.disconn({
+                node: item.id,
+                success: function() {
+                  location.reload();
+                }
+              });
+            });
+          }
+        });
+    } else {
+      api
+        .use({
+          server: $("#acaddress").val(),
+          hub: $("#apmac").val() || '',
+          developer: $("#username").val() || 'tester',
+          key: $("#password").val() || "10b83f9a2e823c47",
+          local: false
+        }).oauth2({
+          success: function() {
+            api.devices({
+              hub: $("#apmac").val() || '',
+              success: function(data) {
+                if (!data.nodes.forEach) {
+                  location.reload();
+                  return;
+                }
+                data.nodes.forEach(item => {
+                  api.disconn({
+                    node: item.id,
+                    success: function() {
+                      location.reload();
+                    }
+                  });
+                });
+              }
+            });
+          }
+        });
+    }
+  }
+
+  let disconn_without_refresh = function() {
+    let useway = mystorage.get('useway') || 'local';
+    if (useway === 'local') {
+      api
+        .use({
+          server: $("#ap-ip").val(),
+          hub: '',
+          local: true
+        })
+        .devices({
+          server: $("#ap-ip").val(),
+          hub: '',
+          success: function(data) {
+            if (!data.nodes.forEach) {
+              console.log("There are no devices to disconnect.s");
+              return;
+            }
+            data.nodes.forEach(item => {
+              api.disconn({
+                node: item.id,
+                success: function() {
+                  console.log("Device " + item.id + " has been disconnected.");
+                }
+              });
+            });
+          }
+        });
+    } else {
+      api
+        .use({
+          server: $("#acaddress").val(),
+          hub: $("#apmac").val() || '',
+          developer: $("#username").val() || 'tester',
+          key: $("#password").val() || "10b83f9a2e823c47",
+          local: false
+        }).oauth2({
+          success: function() {
+            api.devices({
+              hub: $("#apmac").val() || '',
+              success: function(data) {
+                if (!data.nodes.forEach) {
+                    console.log("There are no devices to disconnect.");
+                  return;
+                }
+                data.nodes.forEach(item => {
+                  api.disconn({
+                    node: item.id,
+                    success: function() {
+                      console.log("Device " + item.id + " has been disconnected.");
+                    }
+                  });
+                });
+              }
+            });
+          }
+        });
+    }
+  };
+
+  disconn_without_refresh();
+
   // Disconnect button action (断开连接).
   $(".disconbtn").on('click', function() {
     let useway = mystorage.get('useway') || 'local';
@@ -136,7 +256,7 @@ $(document).ready(function() {
       }
       device.real[mac].notifyWork = false;
     }
-    console.log('work---work---work', num);
+    //console.log('work---work---work', num);
     $('#_work').html(num);
   }, 6 * 1000);
 
@@ -233,7 +353,7 @@ $(document).ready(function() {
     if (isWork || (Date.now() - lastWork) < 2000) return;
     lastWork = Date.now();
     isWork = true;
-    console.log('正在连接', mac);
+    //console.log('正在连接', mac);
     api.conn({
       node: mac,
       type: device.real[mac].type,
@@ -242,7 +362,7 @@ $(document).ready(function() {
         isWork = false;
         connectNum = connectedDeviceCount(device);
         if (connectNum === 1) {
-          $('#graphic .message').eq(0).children('b').html(`MAC:${mac}`);
+          $('#graphic .message').eq(0).children('#initmac').html(`MAC: ${mac}`);
           $('#graphic .chart')[0].dataset.mac = deviceMac;
           // $('#graphic .name')[0].innerHTML = device.real[i].name;
         } else {
@@ -702,11 +822,12 @@ $(document).ready(function() {
 
   function createChart(n, name, mac) {
     let chartHtmlStr = function() {
-      return `<div class="chart" data-mac='${mac}'>
+      return `<hr class="chart-separator-line">
+            <div class="chart" data-mac='${mac}'>
             <div class="content-header">
-                <h4 style="display: inline-block; margin-left: 70px;">Device #${n}</h4>
+                <span class="in-line-block bold-text device-font">Device #${n}</span>
                 <span class="name"></span>
-                <b style="display: inline-block; margin-left: 70px";>MAC：` + mac + `</b>
+                <span id="` + mac + `" class="in-line-block-margin-padding bold-text"><b>MAC：` + mac + `</b></span>
                 <span class="hidden">状态:</span>
                 <span class="status hidden">在线</span>
             </div>
@@ -730,7 +851,8 @@ $(document).ready(function() {
       chartInit(n, mac);
       console.log(n, mac);
       // $('#graphic .message').eq(n-1).children('b').html(`Mac:${mac}`);
-      $('#graphic .chart:eq(1)').find('b').html(`MAC:${mac}`);
+      //id_mac_str = "#" + mac;
+      $('#graphic .chart:eq(1)').find('b').html(`MAC: ${mac}`);
       $('#graphic .chart')[n - 1].dataset.mac = mac;
     }
   }
