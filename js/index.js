@@ -833,8 +833,8 @@ $(document).ready(function() {
             </div>
             <div class="row">
               <div class="col-md-4"><div class="hum pic"></div></div>
-              <div class="col-md-4"><div class="pressure pic"></div></div>
               <div class="col-md-4"><div class="light pic"></div></div>
+              <div class="col-md-4"><div class="pressure pic"></div></div>
             </div>
             <div class="row">
              <div class="col-md-4"> <div class="gyro pic"></div></div>
