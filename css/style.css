@@ -87,6 +87,7 @@ input:-webkit-autofill {
 #wrapper-div {
   margin: auto;
   width: 90%;
+  padding-bottom: 50px;
 }
 
 #title-div {
@@ -144,7 +145,7 @@ input:-webkit-autofill {
 
 .chart {
   margin-top: 35px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 }
 
 .chart-separator-line {
