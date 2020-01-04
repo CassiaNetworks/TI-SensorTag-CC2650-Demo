@@ -151,3 +151,11 @@ input:-webkit-autofill {
 .chart-separator-line {
   border-top: 1px dashed black;
 }
+
+/* Toyota Styles */
+
+#toyota_logo_1 {
+  display: inline-block;
+  clear:both;
+  width:200px;
+}
