@@ -155,7 +155,10 @@ input:-webkit-autofill {
 /* Toyota Styles */
 
 #toyota_logo_1 {
-  display: inline-block;
-  clear:both;
+  width:100%;
+  text-align: center;
+}
+
+#toyota_logo_1 img {
   width:200px;
 }
