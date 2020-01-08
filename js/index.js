@@ -591,6 +591,9 @@ $(document).ready(function() {
             data: magneticzData
           }, ]
         });
+        system.log("magneticxData" + magneticxData);
+        system.log("magneticyData" + magneticyData);
+        system.log("magneticzData" + magneticzData);
         break;
     }
   }
