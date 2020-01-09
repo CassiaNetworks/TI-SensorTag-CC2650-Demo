@@ -61,9 +61,9 @@ function acc(data,range){
 	let accX = parseFloat((accXdata * 1) / (32760 / range)).toFixed(1);
 	let accY = parseFloat((accYdata * 1) / (32760 / range)).toFixed(1);
 	let accZ = parseFloat((accZdata * 1) / (32760 / range)).toFixed(1);
-	accX = accX > range?range-accX:accX;
-	accY = accY > range?range-accY:accY;
-	accZ = accZ > range?range-accZ:accZ;
+	accX = accX > range? (range-accX).toFixed(1) : accX;
+	accY = accY > range? (range-accY).toFixed(1) : accY;
+	accZ = accZ > range? (range-accZ).toFixed(1) : accZ;
 
 	return [accX,accY,accZ];
 }
