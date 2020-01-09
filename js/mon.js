@@ -46,9 +46,9 @@ function gyro(data){
 	let gyroX = parseFloat((gyroXdata * 1) / (65536 / 500)).toFixed(1);
 	let gyroY = parseFloat((gyroYdata * 1) / (65536 / 500)).toFixed(1);
 	let gyroZ = parseFloat((gyroZdata * 1) / (65536 / 500)).toFixed(1);
-	gyroX = gyroX > 255?255 - gyroX:gyroX;
-	gyroY = gyroY > 255?255 - gyroY:gyroY;
-	gyroZ = gyroZ > 255?255 - gyroZ:gyroZ;
+	gyroX = gyroX > 255 ? (255 - gyroX).toFixed(1) : gyroX;
+	gyroY = gyroY > 255 ? (255 - gyroY).toFixed(1) : gyroY;
+	gyroZ = gyroZ > 255 ? (255 - gyroZ).toFixed(1) : gyroZ;
 	return [gyroX,gyroY,gyroZ];
 }
 
@@ -61,9 +61,9 @@ function acc(data,range){
 	let accX = parseFloat((accXdata * 1) / (32760 / range)).toFixed(1);
 	let accY = parseFloat((accYdata * 1) / (32760 / range)).toFixed(1);
 	let accZ = parseFloat((accZdata * 1) / (32760 / range)).toFixed(1);
-	accX = accX > range?range-accX:accX;
-	accY = accY > range?range-accY:accY;
-	accZ = accZ > range?range-accZ:accZ;
+	accX = accX > range? (range-accX).toFixed(1) : accX;
+	accY = accY > range? (range-accY).toFixed(1) : accY;
+	accZ = accZ > range? (range-accZ).toFixed(1) : accZ;
 
 	return [accX,accY,accZ];
 }
