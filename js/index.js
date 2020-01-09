@@ -256,7 +256,6 @@ $(document).ready(function() {
       }
       device.real[mac].notifyWork = false;
     }
-    //console.log('work---work---work', num);
     $('#_work').html(num);
   }, 6 * 1000);
 
@@ -300,10 +299,8 @@ $(document).ready(function() {
    * #refTime is the frequency shown in seconds on the UI.
    */  
   $("#ref").on("change", function() {
-    console.log($(this).val() / 100 + "s");
     $("#refTime").html("(" + $(this).val() / 100 + "s)");
     ref = parseInt($(this).val(), 10).toString(16);
-    console.log(ref)
     refArr = {
       41: ref,
       49: ref,
@@ -321,7 +318,6 @@ $(document).ready(function() {
         n++;
       }
     }
-    console.log('n', n);
     return n;
   }
 
@@ -329,7 +325,6 @@ $(document).ready(function() {
   var lastWork = 1;
 
   function scan2conn(hubMac, scanData) {
-    //   console.log(scanData)
     let data = JSON.parse(scanData);
     let mac = data.bdaddrs[0].bdaddr;
     let type = data.bdaddrs[0].bdaddrType;
@@ -382,7 +377,7 @@ $(document).ready(function() {
     co(function*() {
       try {
         for (let key in handle_value) {
-          console.log(handle_value[key]);
+          //console.log(handle_value[key]);
           yield api.write({
             node: mac,
             handle: key,
@@ -393,7 +388,7 @@ $(document).ready(function() {
         }
         device.real[mac].connect = true;
         for (let k in refArr) {
-          console.log(refArr[k]);
+          //console.log(refArr[k]);
           yield api.write({
             node: mac,
             handle: k,
@@ -401,7 +396,7 @@ $(document).ready(function() {
           });
         }
       } catch (e) {
-        console.log('TI-写入指令失败', e);
+        //console.log('TI-写入指令失败', e);
         api.disconn({
           node: mac
         });
@@ -446,7 +441,7 @@ $(document).ready(function() {
       //   break;
 
       case 44:
-        //    console.log('##############',device.real[mac]);
+        //console.log('##############',device.real[mac]);
         let hum = sensorHdc1000Convert(value);
         let humData = device.real[mac].humData,
           humDate = device.real[mac].humDate;
@@ -849,7 +844,6 @@ $(document).ready(function() {
     } else {
       $('#graphic').append(chartHtmlStr());
       chartInit(n, mac);
-      console.log(n, mac);
       // $('#graphic .message').eq(n-1).children('b').html(`Mac:${mac}`);
       //id_mac_str = "#" + mac;
       $('#graphic .chart:eq(1)').find('b').html(`MAC: ${mac}`);
