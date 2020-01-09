@@ -256,7 +256,6 @@ $(document).ready(function() {
       }
       device.real[mac].notifyWork = false;
     }
-    //console.log('work---work---work', num);
     $('#_work').html(num);
   }, 6 * 1000);
 
@@ -300,10 +299,8 @@ $(document).ready(function() {
    * #refTime is the frequency shown in seconds on the UI.
    */  
   $("#ref").on("change", function() {
-    console.log($(this).val() / 100 + "s");
     $("#refTime").html("(" + $(this).val() / 100 + "s)");
     ref = parseInt($(this).val(), 10).toString(16);
-    console.log(ref)
     refArr = {
       41: ref,
       49: ref,
@@ -321,7 +318,6 @@ $(document).ready(function() {
         n++;
       }
     }
-    console.log('n', n);
     return n;
   }
 
@@ -329,7 +325,6 @@ $(document).ready(function() {
   var lastWork = 1;
 
   function scan2conn(hubMac, scanData) {
-    //   console.log(scanData)
     let data = JSON.parse(scanData);
     let mac = data.bdaddrs[0].bdaddr;
     let type = data.bdaddrs[0].bdaddrType;
@@ -353,7 +348,6 @@ $(document).ready(function() {
     if (isWork || (Date.now() - lastWork) < 2000) return;
     lastWork = Date.now();
     isWork = true;
-    //console.log('正在连接', mac);
     api.conn({
       node: mac,
       type: device.real[mac].type,
@@ -382,7 +376,7 @@ $(document).ready(function() {
     co(function*() {
       try {
         for (let key in handle_value) {
-          console.log(handle_value[key]);
+          //console.log(handle_value[key]);
           yield api.write({
             node: mac,
             handle: key,
@@ -393,7 +387,7 @@ $(document).ready(function() {
         }
         device.real[mac].connect = true;
         for (let k in refArr) {
-          console.log(refArr[k]);
+          //console.log(refArr[k]);
           yield api.write({
             node: mac,
             handle: k,
@@ -401,7 +395,7 @@ $(document).ready(function() {
           });
         }
       } catch (e) {
-        console.log('TI-写入指令失败', e);
+        //console.log('TI-写入指令失败', e);
         api.disconn({
           node: mac
         });
@@ -832,14 +826,14 @@ $(document).ready(function() {
                 <span class="status hidden">在线</span>
             </div>
             <div class="row">
-              <div class="col-md-4"><div class="hum pic"></div></div>
               <div class="col-md-4"><div class="light pic"></div></div>
-              <div class="col-md-4"><div class="pressure pic"></div></div>
+              <div class="col-md-4"><div class="acc pic"></div></div>
+              <div class="col-md-4"> <div class="gyro pic"></div></div>
             </div>
             <div class="row">
-             <div class="col-md-4"> <div class="gyro pic"></div></div>
-              <div class="col-md-4"><div class="acc pic"></div></div>
-              <div class="col-md-4"><div class="magnetic pic"></div></div>`;
+              <div class="col-md-4"><div class="hum pic"></div></div>
+              <div class="col-md-4"><div class="magnetic pic"></div></div>
+              <div class="col-md-4"><div class="pressure pic"></div></div>`;
     };
     let chartList = $('#graphic .chart');
     if (chartList[0].dataset.mac === '') {
@@ -849,7 +843,6 @@ $(document).ready(function() {
     } else {
       $('#graphic').append(chartHtmlStr());
       chartInit(n, mac);
-      console.log(n, mac);
       // $('#graphic .message').eq(n-1).children('b').html(`Mac:${mac}`);
       //id_mac_str = "#" + mac;
       $('#graphic .chart:eq(1)').find('b').html(`MAC: ${mac}`);
