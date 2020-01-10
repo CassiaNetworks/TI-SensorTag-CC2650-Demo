@@ -155,10 +155,40 @@ input:-webkit-autofill {
 /* Toyota Styles */
 
 #toyota_logo_1 {
-  width:100%;
+  display: inline-block;
   text-align: center;
+  clear: both;
+  margin-right: 220px;
 }
 
 #toyota_logo_1 img {
-  width:200px;
+  width:220px;
+}
+
+#cassia_logo_1 {
+  display: inline-block;
+  text-align: center;
+  clear: both;
+  float: left;
+  padding-left: 20px;
+  margin-top: 100px;
+}
+
+#cassia_logo_1 img {
+  width: 200px;
+}
+
+#toyota_car {
+  display: inline-block;
+  text-align: center;
+  clear: both;
+  float: right;
+}
+
+#toyota_car img {
+  width: 200px;
+}
+
+#logos {
+text-align: center;
 }
