@@ -604,11 +604,11 @@ $(document).ready(function() {
       _n = n - 1
     device.real[_mac].accChart = echarts.init($('.acc')[_n]);
     device.real[_mac].gyroChart = echarts.init($('.gyro')[_n]);
-    device.real[_mac].magneticChart = echarts.init($('.magnetic')[_n]);
+    //device.real[_mac].magneticChart = echarts.init($('.magnetic')[_n]);
     device.real[_mac].lightChart = echarts.init($('.light')[_n]);
     // device.real[_mac].temperatureChart = echarts.init($('.temperature')[_n]);
-    device.real[_mac].humChart = echarts.init($('.hum')[_n]);
-    device.real[_mac].pressureChart = echarts.init($('.pressure')[_n]);
+    //device.real[_mac].humChart = echarts.init($('.hum')[_n]);
+    //device.real[_mac].pressureChart = echarts.init($('.pressure')[_n]);
 
     let tooltip = {
       trigger: 'axis',
@@ -688,7 +688,7 @@ $(document).ready(function() {
         sampling: 'average',
       }]
     });
-    device.real[_mac].magneticChart.setOption({
+    /*device.real[_mac].magneticChart.setOption({
       title: {
         text: lang[lang.useLang].Magneto
       },
@@ -711,13 +711,13 @@ $(document).ready(function() {
           type: 'line',
           sampling: 'average'
         },
-        /*{
-                       name: 'r',
-                       type: 'line',
-                       sampling: 'average'
-                   }*/
+        //{
+          //             name: 'r',
+          //             type: 'line',
+          //             sampling: 'average'
+        //}
       ]
-    })
+    })*/
     device.real[_mac].lightChart.setOption({
       title: {
         text: lang[lang.useLang].Digitlight
@@ -752,7 +752,7 @@ $(document).ready(function() {
     //   }]
     // });
 
-    device.real[_mac].humChart.setOption({
+    /*device.real[_mac].humChart.setOption({
       title: {
         text: lang[lang.useLang].Humidity
       },
@@ -783,7 +783,7 @@ $(document).ready(function() {
         type: 'line',
         sampling: 'average'
       }]
-    });
+    });*/
     mac === 'temp' ? device.real[_mac].created = true : 0;
   };
   chartInit(1);
@@ -829,11 +829,7 @@ $(document).ready(function() {
               <div class="col-md-4"><div class="light pic"></div></div>
               <div class="col-md-4"><div class="acc pic"></div></div>
               <div class="col-md-4"> <div class="gyro pic"></div></div>
-            </div>
-            <div class="row">
-              <div class="col-md-4"><div class="hum pic"></div></div>
-              <div class="col-md-4"><div class="magnetic pic"></div></div>
-              <div class="col-md-4"><div class="pressure pic"></div></div>`;
+            </div>`;
     };
     let chartList = $('#graphic .chart');
     if (chartList[0].dataset.mac === '') {
