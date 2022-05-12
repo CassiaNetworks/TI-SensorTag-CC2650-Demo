@@ -27,7 +27,7 @@ var lang = {
     'Digitlight': 'Lumination',
     'refBtn':"caiji",
     '_work18n': 'Total Sensors Connected: ',
-    'pastDevs18n': 'Connected & Disconnected Devices: '
+    'pastDevs18n': 'Previously Connected Devices: '
   },
   cn: {
     'SamplingFrequency': '采样频率', // TODO: is it 采集频率 or 采样频率?
@@ -45,7 +45,7 @@ var lang = {
     'Digitlight': '光照',
     'refBtn':"采集",
     '_work18n': '已连接数量: ',
-    'pastDevs18n': '连接和断开的设备: '
+    'pastDevs18n': '以前连接的设备: '
   },
   useLang: mystorage.get('useLang') || 'en'
 }
