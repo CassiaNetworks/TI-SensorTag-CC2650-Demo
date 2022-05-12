@@ -26,7 +26,8 @@ var lang = {
     //'Acoustic': 'Acoustic',
     'Digitlight': 'Lumination',
     'refBtn':"caiji",
-    '_work18n': 'Total Sensors Connected: '
+    '_work18n': 'Total Sensors Connected: ',
+    'pastDevs18n': 'Previously Connected Devices: '
   },
   cn: {
     'SamplingFrequency': '采样频率', // TODO: is it 采集频率 or 采样频率?
@@ -43,7 +44,8 @@ var lang = {
     //'Acoustic': '声感',
     'Digitlight': '光照',
     'refBtn':"采集",
-    '_work18n': '已连接数量: '
+    '_work18n': '已连接数量: ',
+    'pastDevs18n': '以前连接的设备: '
   },
   useLang: mystorage.get('useLang') || 'en'
 }

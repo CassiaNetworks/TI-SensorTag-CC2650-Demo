@@ -151,3 +151,16 @@ input:-webkit-autofill {
 .chart-separator-line {
   border-top: 1px dashed black;
 }
+
+.scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#pastDevs {
+  border: 1px solid black;
+  width: 200px;
+  height: 150px;
+  text-align: center;
+  padding: 10px;
+}
