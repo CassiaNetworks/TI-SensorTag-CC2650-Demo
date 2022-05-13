@@ -376,7 +376,7 @@ $(document).ready(function() {
             ("0" + m.getUTCMinutes()).slice(-2) + ":" +
             ("0" + m.getUTCSeconds()).slice(-2);
 
-        $("#pastDevs").append("<p>" + dateString + ' <b>' + deviceMac + "</b></p>");
+        $("#pastDevs").append("<p>" + dateString + '&nbsp;&nbsp;&nbsp;&nbsp;<b>' + deviceMac + "</b></p>");
       },
       error: function(err) {
         isWork = false;
